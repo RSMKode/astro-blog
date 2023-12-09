@@ -1,9 +1,8 @@
 ---
-import Header from "../components/Header.astro";
-import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 
-const pageTitle = "Sobre mi";
+const pageTitle = "Sobre mi: RSMKode";
 const identity = {
   firstName: "Roger",
   country: "España",
@@ -31,64 +30,49 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}: RSMKode</h1>
-    <h2>¡Y mi nuevo sitio Astro!</h2>
+<Layout pageTitle={pageTitle}>
+  <h2>¡Y mi nuevo sitio Astro!</h2>
 
-    <p>
-      Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
-      página de mi sitio web, ¡y es la primera que he construido yo mismo!
-    </p>
+  <p>
+    Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
+    página de mi sitio web, ¡y es la primera que he construido yo mismo!
+  </p>
 
-    <p>
-      Este sitio se irá actualizando a medida que vaya completando más partes
-      del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
-    </p>
-    <p>He aquí algunos datos sobre mí:</p>
-    <>
-      <li>Me llamo {identity.firstName}.</li>
-      <li>Vivo en {identity.country} y soy {identity.occupation}.</li>
-      <li>
-        Varias de mis aficiones son:
-        <ul>
-          {identity.hobbies.map((hobby) => <li class="hobby">{hobby}</li>)}
-        </ul>
-      </li>
-    </>
-    <p>Mis habilidades son:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+  <p>
+    Este sitio se irá actualizando a medida que vaya completando más partes del
+    tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
+  </p>
+  <p>He aquí algunos datos sobre mí:</p>
+  <>
+    <li>Me llamo {identity.firstName}.</li>
+    <li>Vivo en {identity.country} y soy {identity.occupation}.</li>
+    <li>
+      Varias de mis aficiones son:
+      <ul>
+        {identity.hobbies.map((hobby) => <li class="hobby">{hobby}</li>)}
+      </ul>
+    </li>
+  </>
+  <p>Mis habilidades son:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+  {happy && <p>¡Estoy feliz de aprender Astro!</p>}
 
-    {finished && <p>¡He terminado este tutorial!</p>}
+  {finished && <p>¡He terminado este tutorial!</p>}
 
-    {
-      goal === 3 ? (
-        <p>Mi objetivo es terminar en {goal} días.</p>
-      ) : (
-        <p>Mi objetivo no son 3 días.</p>
-      )
+  {
+    goal === 3 ? (
+      <p>Mi objetivo es terminar en {goal} días.</p>
+    ) : (
+      <p>Mi objetivo no son 3 días.</p>
+    )
+  }
+  <style define:vars={{ skillColor, fontWeight, textCase }}>
+    .skill {
+      color: var(--skillColor);
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
     }
-  </body>
-</html>
-<style define:vars={{ skillColor, fontWeight, textCase }}>
-  h1 {
-    color: purple;
-    font-size: 4rem;
-  }
-  .skill {
-    color: var(--skillColor);
-    font-weight: var(--fontWeight);
-    text-transform: var(--textCase);
-  }
-</style>
+  </style>
+</Layout>

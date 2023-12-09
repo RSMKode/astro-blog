@@ -4,6 +4,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  place-content: start;
+  gap: 1em;
   margin: 0 auto;
   width: 100%;
   max-width: 80ch;
@@ -17,8 +21,8 @@ body {
 }
 
 h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+  color: purple;
+  font-size: 4rem;
 }
 
 /* estilos de la barra de navegación*/
@@ -83,6 +87,13 @@ header {
 
 .nav-links.expanded {
   display: flex;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  place-content: start;
+  gap: 1em;
 }
 
 @media screen and (width < 636px) {
