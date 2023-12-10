@@ -24,7 +24,11 @@ const { pageTitle } = Astro.props;
     </main>
     <Footer />
     <script>
-      import "/src/scripts/menuHamburguesa.js";
+      import { handleMenuClick } from "../scripts/menuHamburguesa";
+
+      document.addEventListener("astro:page-load", () => {
+        handleMenuClick();
+      });
     </script>
   </body>
 </html>
