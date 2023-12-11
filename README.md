@@ -1,8 +1,8 @@
-#RSMKode Blog
+# RSMKode Blog
 
 Blog siguiendo el tutorial de Astro docs.
 
-## 🚀 Project Structure
+## 🚀 Estructura
 
 ```text
 /
